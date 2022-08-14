@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# config files
+BOT_config.py
+MAINUSER_config.py
