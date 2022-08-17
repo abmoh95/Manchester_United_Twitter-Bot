@@ -1,7 +1,7 @@
 {
     "get": "fixtures/lineups",
     "parameters": {
-        "fixture": "867958"
+        "fixture": "874717"
     },
     "errors": [],
     "results": 2,
@@ -12,9 +12,9 @@
     "response": [
         {
             "team": {
-                "id": 55,
-                "name": "Brentford",
-                "logo": "https://media.api-sports.io/football/teams/55.png",
+                "id": 75,
+                "name": "Stoke City",
+                "logo": "https://media.api-sports.io/football/teams/75.png",
                 "colors": {
                     "player": {
                         "primary": "ff0000",
@@ -22,18 +22,18 @@
                         "border": "ff0000"
                     },
                     "goalkeeper": {
-                        "primary": "0099cc",
+                        "primary": "00d4f1",
                         "number": "000000",
-                        "border": "0099cc"
+                        "border": "00d4f1"
                     }
                 }
             },
-            "formation": "5-3-2",
+            "formation": "3-5-2",
             "startXI": [
                 {
                     "player": {
-                        "id": 19465,
-                        "name": "David Raya",
+                        "id": 87878,
+                        "name": "Josef Bursik",
                         "number": 1,
                         "pos": "G",
                         "grid": "1:1"
@@ -41,90 +41,90 @@
                 },
                 {
                     "player": {
-                        "id": 44871,
-                        "name": "Aaron Hickey",
-                        "number": 2,
-                        "pos": "D",
-                        "grid": "2:5"
-                    }
-                },
-                {
-                    "player": {
-                        "id": 15745,
-                        "name": "Mads Roerslev Rasmussen",
-                        "number": 30,
-                        "pos": "D",
-                        "grid": "2:4"
-                    }
-                },
-                {
-                    "player": {
-                        "id": 19124,
-                        "name": "Pontus Jansson",
-                        "number": 18,
+                        "id": 296534,
+                        "name": "Connor Taylor",
+                        "number": 32,
                         "pos": "D",
                         "grid": "2:3"
                     }
                 },
                 {
                     "player": {
-                        "id": 18917,
-                        "name": "Ben Mee",
-                        "number": 16,
+                        "id": 18759,
+                        "name": "Phil Jagielka",
+                        "number": 6,
                         "pos": "D",
                         "grid": "2:2"
                     }
                 },
                 {
                     "player": {
-                        "id": 19346,
-                        "name": "Rico Henry",
-                        "number": 3,
+                        "id": 30800,
+                        "name": "Ben Wilmot",
+                        "number": 16,
                         "pos": "D",
                         "grid": "2:1"
                     }
                 },
                 {
                     "player": {
-                        "id": 19362,
-                        "name": "Joshua Dasilva",
-                        "number": 10,
+                        "id": 19831,
+                        "name": "Tariqe Fosu-Henry",
+                        "number": 24,
+                        "pos": "M",
+                        "grid": "3:5"
+                    }
+                },
+                {
+                    "player": {
+                        "id": 130421,
+                        "name": "Will Smallbone",
+                        "number": 18,
+                        "pos": "M",
+                        "grid": "3:4"
+                    }
+                },
+                {
+                    "player": {
+                        "id": 19611,
+                        "name": "Lewis Baker",
+                        "number": 8,
                         "pos": "M",
                         "grid": "3:3"
                     }
                 },
                 {
                     "player": {
-                        "id": 30407,
-                        "name": "Christian Nørgaard",
-                        "number": 6,
+                        "id": 19503,
+                        "name": "Sam Clucas",
+                        "number": 7,
                         "pos": "M",
                         "grid": "3:2"
                     }
                 },
                 {
                     "player": {
-                        "id": 47438,
-                        "name": "Mathias Jensen",
-                        "number": 8,
+                        "id": 20061,
+                        "name": "Jordan Thompson",
+                        "number": 15,
                         "pos": "M",
                         "grid": "3:1"
                     }
                 },
                 {
                     "player": {
-                        "id": 20589,
-                        "name": "Bryan Mbeumo",
-                        "number": 19,
+                        "id": 19166,
+                        "name": "Dwight Gayle",
+                        "number": 11,
                         "pos": "F",
                         "grid": "4:2"
                     }
                 },
                 {
                     "player": {
-                        "id": 19974,
-                        "name": "Ivan Toney",
-                        "number": 17,
+                        "id": 19802,
+                        "name": "Jacob Brown",
+                        "number": 9,
                         "pos": "F",
                         "grid": "4:1"
                     }
@@ -133,116 +133,98 @@
             "substitutes": [
                 {
                     "player": {
-                        "id": 1835,
-                        "name": "Thomas Strakosha",
-                        "number": 22,
+                        "id": 20194,
+                        "name": "Jack Bonham",
+                        "number": 13,
                         "pos": "G",
                         "grid": null
                     }
                 },
                 {
                     "player": {
-                        "id": 19345,
-                        "name": "Mads Bech Sørensen",
-                        "number": 29,
+                        "id": 19230,
+                        "name": "Aden Flint",
+                        "number": 4,
                         "pos": "D",
                         "grid": null
                     }
                 },
                 {
                     "player": {
-                        "id": 20649,
-                        "name": "Yoane Wissa",
-                        "number": 11,
+                        "id": 19372,
+                        "name": "Morgan Fox",
+                        "number": 3,
+                        "pos": "D",
+                        "grid": null
+                    }
+                },
+                {
+                    "player": {
+                        "id": 284216,
+                        "name": "Tom Sparrow",
+                        "number": 39,
+                        "pos": "D",
+                        "grid": null
+                    }
+                },
+                {
+                    "player": {
+                        "id": 130416,
+                        "name": "Gavin Kilkenny",
+                        "number": 22,
                         "pos": "M",
                         "grid": null
                     }
                 },
                 {
                     "player": {
-                        "id": 25073,
-                        "name": "Vitaly Janelt",
-                        "number": 27,
-                        "pos": "M",
-                        "grid": null
-                    }
-                },
-                {
-                    "player": {
-                        "id": 106725,
-                        "name": "Keane Lewis-Potter",
-                        "number": 23,
+                        "id": 278131,
+                        "name": "D'Margio Wright-Phillips",
+                        "number": 29,
                         "pos": "F",
                         "grid": null
                     }
                 },
                 {
                     "player": {
-                        "id": 15908,
-                        "name": "Mikkel Damsgaard",
-                        "number": 24,
-                        "pos": "M",
-                        "grid": null
-                    }
-                },
-                {
-                    "player": {
-                        "id": 2699,
-                        "name": "Saman Ghoddos",
-                        "number": 14,
+                        "id": 20310,
+                        "name": "Tyrese Campbell",
+                        "number": 10,
                         "pos": "F",
-                        "grid": null
-                    }
-                },
-                {
-                    "player": {
-                        "id": 20110,
-                        "name": "Shandon Baptiste",
-                        "number": 26,
-                        "pos": "M",
-                        "grid": null
-                    }
-                },
-                {
-                    "player": {
-                        "id": 15799,
-                        "name": "Frank Onyeka",
-                        "number": 15,
-                        "pos": "M",
                         "grid": null
                     }
                 }
             ],
             "coach": {
-                "id": 90,
-                "name": "T. Frank",
-                "photo": "https://media.api-sports.io/football/coachs/90.png"
+                "id": 166,
+                "name": "M. O'Neill",
+                "photo": "https://media.api-sports.io/football/coachs/166.png"
             }
         },
         {
             "team": {
-                "id": 33,
-                "name": "Manchester United",
-                "logo": "https://media.api-sports.io/football/teams/33.png",
+                "id": 70,
+                "name": "Middlesbrough",
+                "logo": "https://media.api-sports.io/football/teams/70.png",
                 "colors": {
                     "player": {
-                        "primary": "7dcbe3",
-                        "number": "fe666e",
-                        "border": "7dcbe3"
+                        "primary": "db0000",
+                        "number": "ffffff",
+                        "border": "db0000"
                     },
                     "goalkeeper": {
-                        "primary": "666666",
-                        "number": "ffffff",
-                        "border": "666666"
+                        "primary": "f7f400",
+                        "number": "000000",
+                        "border": "f7f400"
                     }
                 }
             },
-            "formation": "4-2-3-1",
+            "formation": "3-5-1-1",
             "startXI": [
                 {
                     "player": {
-                        "id": 882,
-                        "name": "David De Gea",
+                        "id": 50828,
+                        "name": "Zack Steffen",
                         "number": 1,
                         "pos": "G",
                         "grid": "1:1"
@@ -250,90 +232,90 @@
                 },
                 {
                     "player": {
-                        "id": 886,
-                        "name": "Diogo Dalot",
-                        "number": 20,
-                        "pos": "D",
-                        "grid": "2:4"
-                    }
-                },
-                {
-                    "player": {
-                        "id": 2935,
-                        "name": "Harry Maguire",
-                        "number": 5,
+                        "id": 19828,
+                        "name": "Anfernee Dijksteel",
+                        "number": 15,
                         "pos": "D",
                         "grid": "2:3"
                     }
                 },
                 {
                     "player": {
-                        "id": 2467,
-                        "name": "Lisandro Martínez",
-                        "number": 6,
+                        "id": 19467,
+                        "name": "Darragh Lenihan",
+                        "number": 26,
                         "pos": "D",
                         "grid": "2:2"
                     }
                 },
                 {
                     "player": {
-                        "id": 891,
-                        "name": "Luke Shaw",
-                        "number": 23,
+                        "id": 20044,
+                        "name": "Marc Bola",
+                        "number": 27,
                         "pos": "D",
                         "grid": "2:1"
                     }
                 },
                 {
                     "player": {
-                        "id": 174,
-                        "name": "Christian Eriksen",
-                        "number": 14,
+                        "id": 197764,
+                        "name": "Isaiah Jones",
+                        "number": 2,
+                        "pos": "M",
+                        "grid": "3:5"
+                    }
+                },
+                {
+                    "player": {
+                        "id": 19242,
+                        "name": "Paddy McNair",
+                        "number": 17,
+                        "pos": "M",
+                        "grid": "3:4"
+                    }
+                },
+                {
+                    "player": {
+                        "id": 19240,
+                        "name": "Jonathan Howson",
+                        "number": 16,
+                        "pos": "M",
+                        "grid": "3:3"
+                    }
+                },
+                {
+                    "player": {
+                        "id": 19799,
+                        "name": "Alex Mowatt",
+                        "number": 4,
                         "pos": "M",
                         "grid": "3:2"
                     }
                 },
                 {
                     "player": {
-                        "id": 905,
-                        "name": "Fred",
-                        "number": 17,
+                        "id": 18747,
+                        "name": "Ryan Giles",
+                        "number": 3,
                         "pos": "M",
                         "grid": "3:1"
                     }
                 },
                 {
                     "player": {
-                        "id": 18,
-                        "name": "Jadon Sancho",
-                        "number": 25,
-                        "pos": "M",
-                        "grid": "4:3"
-                    }
-                },
-                {
-                    "player": {
-                        "id": 1485,
-                        "name": "Bruno Fernandes",
+                        "id": 6913,
+                        "name": "Riley McGree",
                         "number": 8,
-                        "pos": "M",
-                        "grid": "4:2"
-                    }
-                },
-                {
-                    "player": {
-                        "id": 909,
-                        "name": "Marcus Rashford",
-                        "number": 10,
-                        "pos": "M",
+                        "pos": "F",
                         "grid": "4:1"
                     }
                 },
                 {
                     "player": {
-                        "id": 874,
-                        "name": "Cristiano Ronaldo",
-                        "number": 7,
+                        "id": 19913,
+                        "name": "Duncan Watmore",
+                        "number": 18,
                         "pos": "F",
                         "grid": "5:1"
                     }
@@ -342,90 +324,72 @@
             "substitutes": [
                 {
                     "player": {
-                        "id": 2931,
-                        "name": "Tom Heaton",
-                        "number": 22,
+                        "id": 20419,
+                        "name": "Liam Roberts",
+                        "number": 23,
                         "pos": "G",
                         "grid": null
                     }
                 },
                 {
                     "player": {
-                        "id": 37145,
-                        "name": "Tyrell Malacia",
-                        "number": 12,
+                        "id": 19239,
+                        "name": "Dael Fry",
+                        "number": 6,
                         "pos": "D",
                         "grid": null
                     }
                 },
                 {
                     "player": {
-                        "id": 742,
-                        "name": "Raphaël Varane",
-                        "number": 19,
+                        "id": 19046,
+                        "name": "Tommy Smith",
+                        "number": 14,
                         "pos": "D",
                         "grid": null
                     }
                 },
                 {
                     "player": {
-                        "id": 18846,
-                        "name": "Aaron Wan-Bissaka",
-                        "number": 29,
-                        "pos": "D",
-                        "grid": null
-                    }
-                },
-                {
-                    "player": {
-                        "id": 895,
-                        "name": "James Garner",
-                        "number": 37,
+                        "id": 19666,
+                        "name": "Matt Crooks",
+                        "number": 25,
                         "pos": "M",
                         "grid": null
                     }
                 },
                 {
                     "player": {
-                        "id": 153430,
-                        "name": "Anthony Elanga",
-                        "number": 36,
+                        "id": 304305,
+                        "name": "Sonny Finch",
+                        "number": 31,
                         "pos": "F",
                         "grid": null
                     }
                 },
                 {
                     "player": {
-                        "id": 547,
-                        "name": "Donny van de Beek",
-                        "number": 34,
-                        "pos": "M",
+                        "id": 203014,
+                        "name": "Matthew Hoppe",
+                        "number": 13,
+                        "pos": "F",
                         "grid": null
                     }
                 },
                 {
                     "player": {
-                        "id": 903,
-                        "name": "Scott McTominay",
-                        "number": 39,
-                        "pos": "M",
-                        "grid": null
-                    }
-                },
-                {
-                    "player": {
-                        "id": 284324,
-                        "name": "Alejandro Garnacho",
-                        "number": 49,
-                        "pos": "M",
+                        "id": 19363,
+                        "name": "Marcus Forss",
+                        "number": 21,
+                        "pos": "F",
                         "grid": null
                     }
                 }
             ],
             "coach": {
-                "id": 1993,
-                "name": "E. ten Hag",
-                "photo": "https://media.api-sports.io/football/coachs/1993.png"
+                "id": 6,
+                "name": "C. Wilder",
+                "photo": "https://media.api-sports.io/football/coachs/6.png"
             }
         }
     ]

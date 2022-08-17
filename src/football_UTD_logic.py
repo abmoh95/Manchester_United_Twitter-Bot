@@ -1,5 +1,7 @@
 import json
 import http.client
+from tkinter import E
+from turtle import home
 from urllib import response
 from pprint import pprint
 import csv
@@ -11,18 +13,21 @@ emoji_dict = {"Time": '\U0001f551', "Yellow-Bell" : '\U0001f514', "Red Card" : '
          "Yellow Card" : '\U0001f7e8', "Goal" : '\u26bd', "Substitutions" : '\U0001f504'}
 
 def team_info():
-    f = open('gameEvents.json')
-    data = json.load(f)
-    str_ = ""
-    for team in data["response"]:
-        tournament = team["league"]["name"]
-        homeTeam = team["teams"]["home"]["name"]
-        homeTeam_score = team["goals"]["home"]
-        awayTeam_score = team["goals"]["away"]
-        awayTeam = team["teams"]["away"]["name"]
-        str_ = f"Hometeam: {homeTeam} [{homeTeam_score}] - Awayteam: {awayTeam} [{awayTeam_score}]"
-        return str_, tournament
-
+    try:
+        f = open('gameEvents.json')
+        data = json.load(f)
+        str_ = ""
+        for team in data["response"]:
+            tournament = team["league"]["name"]
+            homeTeam = team["teams"]["home"]["name"]
+            homeTeam_score = team["goals"]["home"]
+            awayTeam_score = team["goals"]["away"]
+            awayTeam = team["teams"]["away"]["name"]
+            str_ = f"Hometeam: {homeTeam} [{homeTeam_score}] - Awayteam: {awayTeam} [{awayTeam_score}]"
+            return str_, tournament
+    except Exception as e:
+        print(f"team_info {e}")
+        return None, None
 
 def ManUtd_Schedule():
     for i in range(3):
@@ -34,14 +39,13 @@ def ManUtd_Schedule():
         conn = http.client.HTTPSConnection("v3.football.api-sports.io")
         try:
             conn.request(
-                "GET", f"/fixtures?team=33&season={datetime.date.today().year}&timezone=Europe/Stockholm", headers=headers)
+                "GET", f"/fixtures?team=75&season={datetime.date.today().year}&timezone=Europe/Stockholm", headers=headers)
 
             res = conn.getresponse()
             json_data = res.read()
             json_data = json_data.decode("utf-8")
 
             Json_file = json.loads(json_data)
-            print(type(Json_file))
             
             #check if we have proper response 
             if Json_file["results"] == 0:
@@ -75,21 +79,42 @@ def ManUtd_Schedule():
     print("Schedule is not retrievable at this moment")
     return
 
+def parse_teaminfo():
+    str_ = ""
+    try:
+        with open('football_schedule.csv') as outfile:
+            reader = csv.reader(outfile)
+            for i in reader:
+                t = datetime.date.today()
+                t = t.strftime('%Y-%m-%d')
+                if i[6] == t:
+                    tournament = i[0]
+                    homeTeam = i[1]
+                    awayTeam = i[2]
+                    city = i[4]
+                    str_+= f"{tournament} H: {homeTeam} A: {awayTeam} City: {city}"
+                    return str_
+    except Exception as e:
+        print(f"parse_teaminfo() {e}")
+        return str_
 
 def check_Games_Today():
-    with open('football_schedule.csv') as outfile:
-        reader = csv.reader(outfile)
-        for i in reader:
-            match_date = datetime.datetime.strptime(i[6], "%Y-%m-%d")
-            match_date = match_date.date()
-            if match_date == datetime.date.today():
-                gameTime = i[7]
-                gameTime = datetime.datetime.strptime(i[7], "%H:%M:%S%z")
-                gameTime = gameTime.time()
-                fixture_ID = i[5]
-                return gameTime, fixture_ID
+    try:
+        with open('football_schedule.csv') as outfile:
+            reader = csv.reader(outfile)
+            for i in reader:
+                match_date = datetime.datetime.strptime(i[6], "%Y-%m-%d")
+                match_date = match_date.date()
+                if match_date == datetime.date.today():
+                    gameTime = i[7]
+                    gameTime = datetime.datetime.strptime(i[7], "%H:%M:%S%z")
+                    gameTime = gameTime.time()
+                    fixture_ID = i[5]
+                    return gameTime, fixture_ID
+            return False
+    except Exception as e:
+        print(f"Error check_Games_Today: {e}")
         return False
-
 
 def teamLineUp(fixture_id):
     Lineup_Today = []
@@ -112,7 +137,7 @@ def teamLineUp(fixture_id):
 
             #check if we have proper response 
             if Json_file["results"] == 0:
-                raise Exception
+                raise Exception("Nått är fel")
 
             # Ensure ascii = false removes unicode characters such as \u010d
             with open('UTD_lineup.json', 'w') as outf:
@@ -136,26 +161,29 @@ def teamLineUp(fixture_id):
             return Lineup_Today
 
         except Exception as e:
-            print("Lineup - {e}")
+            print(f"Lineup: {e}")
             time.sleep(3)
     print("Team lineup was not possible AT THIS TIME")
     return Lineup_Today
 
 def split_lineup(fixture_ID):
-    Lineup_Today = teamLineUp(fixture_id=fixture_ID)
-    lineup1 = []
-    lineup2 = []
-    x = 999
-    for i in range(len(Lineup_Today)):
-        if Lineup_Today[i] == " ":
-            x = i
-            continue
-        else:
-            if x > i:
-                lineup1.append(Lineup_Today[i])
+    try:
+        Lineup_Today = teamLineUp(fixture_id=fixture_ID)
+        lineup1 = []
+        lineup2 = []
+        x = 999
+        for i in range(len(Lineup_Today)):
+            if Lineup_Today[i] == " ":
+                x = i
+                continue
             else:
-                lineup2.append(Lineup_Today[i])
-    return lineup1, lineup2
+                if x > i:
+                    lineup1.append(Lineup_Today[i])
+                else:
+                    lineup2.append(Lineup_Today[i])
+        return lineup1, lineup2
+    except Exception as e:
+        print(f"Split lineup: {e}")
 
             
 
@@ -239,11 +267,14 @@ def game_Events(fixture_ID):
     print("Team-Events was not possible AT THIS TIME")
 
 def check_file_content(str_):
-    with open('utt1.txt', 'r') as oo:
-        if str_ in oo.read():
-            return True
-        else:
-            return False
+    try:
+        with open('utt1.txt', 'r') as oo:
+            if str_ in oo.read():
+                return True
+            else:
+                return False
+    except Exception as e:
+        print(f"check_file_content {e}")
 
 def event_details(typeEvent_type, typeEvent_detail):
     str_ = ""
@@ -293,8 +324,10 @@ def main():
     #game_Events(924430)
     # print(ans)
     # pprint(event_List)
-    #teamLineUp(877947)
+    #teamLineUp(234234234)
     #split_lineup(877947)
+    #parse_teaminfo()
+
 
 if __name__ == "__main__":
     main()

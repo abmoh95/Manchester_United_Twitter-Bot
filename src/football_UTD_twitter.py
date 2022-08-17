@@ -35,7 +35,7 @@ auth.set_access_token(MAINUSER_config.ACCESS_KEY, MAINUSER_config.ACCESS_SECRET)
 api = tweepy.API(auth)
 
 
-def check_gameToday():
+def check_If_gameToday():
     print("Checking game today")
     if football_UTD_logic.check_Games_Today() != False:
         gameTime, fixture_ID = football_UTD_logic.check_Games_Today()
@@ -47,7 +47,7 @@ def check_gameToday():
             (time_now.minute * 60) + (time_now.second)
 
         # Wait 20 min (1200 [s]) before gametime for lineup to be available
-        l2 = gameTime_seconds - 3600 - time_now_sec
+        l2 = gameTime_seconds - 1200 - time_now_sec
         print(l2)
         print(fixture_ID)
         if l2 > 0:
@@ -62,14 +62,14 @@ def check_gameToday():
         str_2 = ' '.join(away_Lineup)
         check_file_content(str_2)
         # print(str_)
-        gameEvents(gameTime=gameTime, fixture_ID=fixture_ID)
+        InGameEvents(gameTime=gameTime, fixture_ID=fixture_ID)
 
     else:
         print("No game today")
         return None, None
 
 
-def gameEvents(gameTime, fixture_ID):
+def InGameEvents(gameTime, fixture_ID):
     event_LIST = []
 
     gameTime_seconds = (gameTime.hour * 3600) + \
@@ -81,10 +81,9 @@ def gameEvents(gameTime, fixture_ID):
     if l2 > 0:
         time.sleep(l2)
     print()
-    match_result, tournament = football_UTD_logic.team_info()
-    Kickoff_str = f"\U0001f514 KICK OFF {tournament} {match_result} \U0001f514"
+    teamInfo = football_UTD_logic.parse_teaminfo()
+    Kickoff_str = f"\U0001f514 KICK OFF {teamInfo} \U0001f514"
     ans = check_file_content(Kickoff_str)
-    print("kick off")
     if ans == False:
         print(
             f"\U0001f514 KICK OFF {datetime.datetime.now().date()} \U0001f514")
@@ -239,13 +238,13 @@ def create_tweet(str_):
 
 # schedule.every().day.at("03:35").do(clear_event_file)
 
-# schedule.every().day.at("03:40").do(check_gameToday)
+# schedule.every().day.at("03:40").do(check_If_gameToday)
 
 # schedule.every().monday.do(good_luck)
 
-# schedule.every(3).seconds.do(check_gameToday)
+# schedule.every(3).seconds.do(check_If_gameToday)
 
-check_gameToday()
+check_If_gameToday()
 
 # After every 10mins geeks() is called.
 # schedule.every(10).minutes.do(geeks)
