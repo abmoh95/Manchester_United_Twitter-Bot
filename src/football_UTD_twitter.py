@@ -143,7 +143,7 @@ def check_file_content(str_):
     with open('GameInfo.txt', 'a+') as oo:
         #print(str_)
         c = oo.write(str_ + "\n")
-        #create_tweet(str_=str_)
+        create_tweet(str_=str_)
         return False
 
 
