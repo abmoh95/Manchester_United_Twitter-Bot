@@ -129,8 +129,8 @@ dmypy.json
 .pyre/
 
 # config files
-src/authen_Keys/BOT_config.py
-src/authen_Keys/MAINUSER_config.py
+BOT_config.py
+MAINUSER_config.py
 
 # AWS key pair
 Man_utd_twitter_keys.pem
