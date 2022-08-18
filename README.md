@@ -15,9 +15,9 @@ This project is a continuation of the Fabrizio Romano BOT (https://github.com/ab
 ## General info
 This bot parses information from an API, the free tier allows a user to make 100 requests every 24h. The requested information is then saved into a json file whereby the twitter followers get live updates about ongoing Manchester United games. Among the updates include; Goals, Substitutions, Yellow and Red Cards. 
 
-Since the API allows 100 requests for its free tier program, a slight delay (max 2 min) has been included into the script to allow the requests to span throughout a whole game.
+Since the API allows 100 requests for its free tier program, a slight delay (max 2 min) has been included into the script to allow the requests to span throughout the whole game.
 
-If the desired outcome is more frequent requests, a web scraping solution, Sofascore, might be a better option unless the preferance is buying thier extension package.
+If the desired outcome is more frequent requests, a web scraping solution, Sofascore, might be a better option unless the preferance is buying the API providers extension package.
 	
 ## Technologies
 Project is created with:
