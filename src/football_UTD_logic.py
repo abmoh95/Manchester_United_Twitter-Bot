@@ -1,13 +1,11 @@
 import json
 import http.client
-from tkinter import E
-from turtle import home
 from urllib import response
 from pprint import pprint
 import csv
 import datetime
 import time
-import BOT_config
+import authen_Keys.BOT_config as BOT_config
 
 emoji_dict = {"Time": '\U0001f551', "Yellow-Bell" : '\U0001f514', "Red Card" : '\U0001f7e5',
          "Yellow Card" : '\U0001f7e8', "Goal" : '\u26bd', "Substitutions" : '\U0001f504'}
@@ -29,6 +27,9 @@ def team_info():
         print(f"team_info {e}")
         return None, None
 
+
+ManUTD_ID = 33
+
 def ManUtd_Schedule():
     for i in range(3):
         print(f"MAN UTD SCHEDULE : i-value: {i}")
@@ -39,7 +40,7 @@ def ManUtd_Schedule():
         conn = http.client.HTTPSConnection("v3.football.api-sports.io")
         try:
             conn.request(
-                "GET", f"/fixtures?team=75&season={datetime.date.today().year}&timezone=Europe/Stockholm", headers=headers)
+                "GET", f"/fixtures?team={ManUTD_ID}&season={datetime.date.today().year}&timezone=Europe/Stockholm", headers=headers)
 
             res = conn.getresponse()
             json_data = res.read()
@@ -195,7 +196,7 @@ def game_Events(fixture_ID):
         'x-rapidapi-key': BOT_config.x_rapidapi_key
         }
         conn = http.client.HTTPSConnection("v3.football.api-sports.io")
-        print(f"Fixture_ID: {fixture_ID}")
+        #print(f"Fixture_ID: {fixture_ID}")
         try:
             conn.request("GET", f"/fixtures?id={fixture_ID}&timezone=Europe/Stockholm", headers=headers)
 
@@ -268,7 +269,7 @@ def game_Events(fixture_ID):
 
 def check_file_content(str_):
     try:
-        with open('utt1.txt', 'r') as oo:
+        with open('GameInfo.txt', 'r') as oo:
             if str_ in oo.read():
                 return True
             else:

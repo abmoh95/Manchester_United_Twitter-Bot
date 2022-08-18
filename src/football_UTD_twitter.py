@@ -3,7 +3,7 @@ import tweepy
 import time
 import datetime
 import schedule
-import BOT_config
+import authen_Keys.BOT_config as BOT_config
 import json
 import http.client
 from urllib import response
@@ -36,22 +36,21 @@ api = tweepy.API(auth)
 
 
 def check_If_gameToday():
-    print("Checking game today")
+    #print("Checking game today")
     if football_UTD_logic.check_Games_Today() != False:
         gameTime, fixture_ID = football_UTD_logic.check_Games_Today()
-        gameTime_seconds = (gameTime.hour * 3600) + \
+        gameTimeInit_seconds = (gameTime.hour * 3600) + \
             (gameTime.minute * 60) + (gameTime.second)
-        print(gameTime_seconds)
+        print(gameTimeInit_seconds)
         time_now = datetime.datetime.now().time()
         time_now_sec = (time_now.hour * 3600) + \
             (time_now.minute * 60) + (time_now.second)
 
         # Wait 20 min (1200 [s]) before gametime for lineup to be available
-        l2 = gameTime_seconds - 1200 - time_now_sec
-        print(l2)
-        print(fixture_ID)
-        if l2 > 0:
-            time.sleep(l2)
+        timeleftUntilGame = gameTimeInit_seconds - 1200 - time_now_sec
+        print(timeleftUntilGame)
+        if timeleftUntilGame > 0:
+            time.sleep(timeleftUntilGame)
             home_Lineup, away_Lineup = football_UTD_logic.split_lineup(fixture_ID=fixture_ID)
         else:
             home_Lineup, away_Lineup = football_UTD_logic.split_lineup(fixture_ID=fixture_ID)
@@ -61,25 +60,24 @@ def check_If_gameToday():
         str_2 = ""
         str_2 = ' '.join(away_Lineup)
         check_file_content(str_2)
-        # print(str_)
         InGameEvents(gameTime=gameTime, fixture_ID=fixture_ID)
 
     else:
-        print("No game today")
+        #print("No game today")
         return None, None
 
 
 def InGameEvents(gameTime, fixture_ID):
     event_LIST = []
 
-    gameTime_seconds = (gameTime.hour * 3600) + \
+    gameTimeInit_seconds = (gameTime.hour * 3600) + \
         (gameTime.minute * 60) + (gameTime.second)
     time_now = datetime.datetime.now().time()
     time_now_sec = (time_now.hour * 3600) + \
         (time_now.minute * 60) + (time_now.second)
-    l2 = gameTime_seconds - time_now_sec
-    if l2 > 0:
-        time.sleep(l2)
+    timeleftUntilGame = gameTimeInit_seconds - time_now_sec
+    if timeleftUntilGame > 0:
+        time.sleep(timeleftUntilGame)
     print()
     teamInfo = football_UTD_logic.parse_teaminfo()
     Kickoff_str = f"\U0001f514 KICK OFF {teamInfo} \U0001f514"
@@ -87,7 +85,8 @@ def InGameEvents(gameTime, fixture_ID):
     if ans == False:
         print(
             f"\U0001f514 KICK OFF {datetime.datetime.now().date()} \U0001f514")
-    while True:
+
+    for i in range(120):
         event_LIST, game_Status_short, game_Status_long = football_UTD_logic.game_Events(
             fixture_ID=fixture_ID)
         if (event_LIST == None) and (game_Status_long == None) and (game_Status_short == None):
@@ -99,7 +98,7 @@ def InGameEvents(gameTime, fixture_ID):
                 continue
 
         ans = check_game_Status(game_Status_short)
-        print(f"game status: {ans} {game_Status_short}")
+        #print(f"game status: {ans} {game_Status_short}")
         if (ans == False) or (ans == None):
             time.sleep(120)
         else:
@@ -127,26 +126,24 @@ def check_game_Status(game_Status):
     endgame = ['FT', 'AED', 'PEN', 'PST', 'CANC',
                'ABD', 'AWD', 'WO', 'SUSP', 'INT']
     if game_Status in endgame:
-        print(type(game_Status))
-        print("Game status: " + game_Status)
+        #print("Game status: " + game_Status)
         return True
     elif game_Status == None:
         return None
     else:
-        print(type(game_Status))
-        print("Game status: " + game_Status)
+        #print("Game status: " + game_Status)
         return False
 
 
 def check_file_content(str_):
-    with open('utt1.txt', 'r') as oo:
+    with open('GameInfo.txt', 'r') as oo:
         if str_ in oo.read():
             return True
 
-    with open('utt1.txt', 'a+') as oo:
-        print(str_)
+    with open('GameInfo.txt', 'a+') as oo:
+        #print(str_)
         c = oo.write(str_ + "\n")
-        create_tweet(str_=str_)
+        #create_tweet(str_=str_)
         return False
 
 
@@ -165,7 +162,7 @@ def update_gameSchedule():
 
 
 def clear_event_file():
-    with open('utt1.txt', 'w') as f:
+    with open('GameInfo.txt', 'w') as f:
         f.close()
 
 
@@ -234,33 +231,13 @@ def create_tweet(str_):
     except Exception as e:
         print(f"Exception create tweet: {e}")
 
-# schedule.every().day.at("03:30").do(update_gameSchedule)
 
-# schedule.every().day.at("03:35").do(clear_event_file)
+schedule.every().day.at("02:30").do(clear_event_file)
 
-# schedule.every().day.at("03:40").do(check_If_gameToday)
+schedule.every().day.at("02:35").do(update_gameSchedule)
 
-# schedule.every().monday.do(good_luck)
+schedule.every().day.at("03:00").do(check_If_gameToday)
 
-# schedule.every(3).seconds.do(check_If_gameToday)
-
-check_If_gameToday()
-
-# After every 10mins geeks() is called.
-# schedule.every(10).minutes.do(geeks)
-
-# schedule.every().seconds.do(bedtime)
-
-# while True:
-#     schedule.run_pending()
-#     time.sleep(10)
-
-#str_ = "This is my first question here, so let me know if you need me to add anything. I have a bot on twitter using tweepy that tweets phrases from a book. When I have a phrase with < 280 characters, I tweet it. If my phrase has > 280 characters, I have a method that breaks down that phrase with more than 280 characters into a list of. So, I want to create a twitter thread with that list, in a way that the phrase would continue to form through each tweet that replied to the previous."
-#client.create_tweet(text="SDS")
-
-# the tweet in this list is 1471 characters in length
-# Life is complex
-
-
-#create_tweet()
-#original_tweet = api.update_status(status=txt)
+while True:
+    schedule.run_pending()
+    time.sleep(10)
