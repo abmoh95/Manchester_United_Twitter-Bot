@@ -17,7 +17,7 @@ This bot parses information from an API, the free tier allows a user to make 100
 
 Since the API allows 100 requests for its free tier program, a slight delay (max 2 min) has been included into the script to allow the requests to span throughout the whole game.
 
-If the desired outcome is more frequent requests, a web scraping solution, Sofascore, might be a better option unless the preferance is buying the API providers extension package.
+If the desired outcome is more frequent requests, a web scraping solution such as Sofascore might be a better option unless the preferance is buying the API providers extension package.
 	
 ## Technologies
 Project is created with:
