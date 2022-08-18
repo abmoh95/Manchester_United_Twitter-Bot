@@ -4,7 +4,7 @@
 [![Twitter API v2](https://img.shields.io/endpoint?url=https%3A%2F%2Ftwbadges.glitch.me%2Fbadges%2Fv2)](https://developer.twitter.com/en/docs/twitter-api)
 [![Twitter API v2](https://img.shields.io/twitter/follow/FabrizioUTDBot?style=social)](https://twitter.com/FabrizioUTDBot)
 
-This project is a continuation of the Fabrizio Romano BOT (https://github.com/abmoh95/Fabrizio_Romano_ManUTD_Bot). This project will live tweet about Manchester United Live Scores, fixtures and game results.
+This project is a continuation of the Fabrizio Romano BOT (https://github.com/abmoh95/Fabrizio_Romano_ManUTD_Bot). This project will live tweet about Manchester United Live Scores, fixtures and game events.
 
 
 ## Table of contents
