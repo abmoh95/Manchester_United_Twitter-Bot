@@ -36,7 +36,7 @@ api = tweepy.API(auth)
 
 
 def check_If_gameToday():
-    #print("Checking game today")
+    print("Checking game today")
     if football_UTD_logic.check_Games_Today() != False:
         gameTime, fixture_ID = football_UTD_logic.check_Games_Today()
         gameTimeInit_seconds = (gameTime.hour * 3600) + \
@@ -63,7 +63,7 @@ def check_If_gameToday():
         InGameEvents(gameTime=gameTime, fixture_ID=fixture_ID)
 
     else:
-        #print("No game today")
+        print("No game today")
         return None, None
 
 
@@ -141,7 +141,7 @@ def check_file_content(str_):
             return True
 
     with open('GameInfo.txt', 'a+') as oo:
-        #print(str_)
+        print(str_)
         c = oo.write(str_ + "\n")
         create_tweet(str_=str_)
         return False
