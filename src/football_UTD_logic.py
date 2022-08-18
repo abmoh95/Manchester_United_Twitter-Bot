@@ -7,7 +7,7 @@ from pprint import pprint
 import csv
 import datetime
 import time
-import MAINUSER_config
+import BOT_config
 
 emoji_dict = {"Time": '\U0001f551', "Yellow-Bell" : '\U0001f514', "Red Card" : '\U0001f7e5',
          "Yellow Card" : '\U0001f7e8', "Goal" : '\u26bd', "Substitutions" : '\U0001f504'}
@@ -34,7 +34,7 @@ def ManUtd_Schedule():
         print(f"MAN UTD SCHEDULE : i-value: {i}")
         headers = {
         'x-rapidapi-host': "v3.football.api-sports.io",
-        'x-rapidapi-key': MAINUSER_config.x_rapidapi_key
+        'x-rapidapi-key': BOT_config.x_rapidapi_key
         }
         conn = http.client.HTTPSConnection("v3.football.api-sports.io")
         try:
@@ -123,7 +123,7 @@ def teamLineUp(fixture_id):
         print(f"Lineup : i-value: {i}")
         headers = {
         'x-rapidapi-host': "v3.football.api-sports.io",
-        'x-rapidapi-key': MAINUSER_config.x_rapidapi_key
+        'x-rapidapi-key': BOT_config.x_rapidapi_key
         }
         conn = http.client.HTTPSConnection("v3.football.api-sports.io")
         try:
@@ -192,7 +192,7 @@ def game_Events(fixture_ID):
         print(f"Event : i-value: {i}")
         headers = {
         'x-rapidapi-host': "v3.football.api-sports.io",
-        'x-rapidapi-key': MAINUSER_config.x_rapidapi_key
+        'x-rapidapi-key': BOT_config.x_rapidapi_key
         }
         conn = http.client.HTTPSConnection("v3.football.api-sports.io")
         print(f"Fixture_ID: {fixture_ID}")

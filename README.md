@@ -13,11 +13,17 @@ This project is a continuation of the Fabrizio Romano BOT (https://github.com/ab
 * [Setup](#setup)
 
 ## General info
-A Twitter bot that retweets content from Fabrizio Romano related to Manchester United Football Club.
+This bot parses information from an API, the free tier allows a user to make 100 requests every 24h. The requested information is then saved into a json file whereby the twitter followers get live updates about ongoing Manchester United games. Among the updates include; Goals, Substitutions, Yellow and Red Cards. 
+
+Since the API allows 100 requests for its free tier program, a slight delay (max 2 min) has been included into the script to allow the requests to span throughout a whole game.
+
+If the desired outcome is more frequent requests, a web scraping solution, Sofascore, might be a better option unless the preferance is buying thier extension package.
 	
 ## Technologies
 Project is created with:
 * Python-3.8
+* Twitter developer account
+* Insomnia API - Webscraping 
 * Twitter API V2
 * Google Cloud Platform (either Google Function or in my case Google Cloud VM).
 
@@ -29,13 +35,14 @@ To run this project, install it locally:
 $ sudo apt update
 $ sudo apt install python3-pip
 $ pip3 install tweepy
-$ python3 main.py
+$ python3 football_UTD_twitter.py
 ```
 Links
 -----
 
-- [Documentation](https://tweepy.readthedocs.io/en/latest/)
+- [Tweepy documentation](https://tweepy.readthedocs.io/en/latest/)
 - [Google Cloud Platform](https://cloud.google.com/)
 - [Twitter API Documentation](https://developer.twitter.com/en/docs/twitter-api)
 - [Sofascore](https://www.sofascore.com/football/livescore)
 - [API-FOOTBALL (3.9.2)](https://www.api-football.com/documentation-v3)
+- [Insomnia rest](https://insomnia.rest/)

@@ -3,7 +3,7 @@ import tweepy
 import time
 import datetime
 import schedule
-import MAINUSER_config
+import BOT_config
 import json
 import http.client
 from urllib import response
@@ -15,13 +15,13 @@ import math
 import football_UTD_logic
 
 
-ACCESS_KEY = MAINUSER_config.ACCESS_KEY
-ACCESS_SECRET = MAINUSER_config.ACCESS_SECRET
-CONSUMER_KEY = MAINUSER_config.CONSUMER_KEY
-CONSUMER_SECRET = MAINUSER_config.CONSUMER_SECRET
+ACCESS_KEY = BOT_config.ACCESS_KEY
+ACCESS_SECRET = BOT_config.ACCESS_SECRET
+CONSUMER_KEY = BOT_config.CONSUMER_KEY
+CONSUMER_SECRET = BOT_config.CONSUMER_SECRET
 
 
-client = tweepy.Client(bearer_token=MAINUSER_config.BEARER_TOKEN,
+client = tweepy.Client(bearer_token=BOT_config.BEARER_TOKEN,
                        access_token=ACCESS_KEY,
                        access_token_secret=ACCESS_SECRET,
                        consumer_key=CONSUMER_KEY,
@@ -29,8 +29,8 @@ client = tweepy.Client(bearer_token=MAINUSER_config.BEARER_TOKEN,
 
 
 # authentication
-auth = tweepy.OAuthHandler(MAINUSER_config.CONSUMER_KEY, MAINUSER_config.CONSUMER_SECRET)
-auth.set_access_token(MAINUSER_config.ACCESS_KEY, MAINUSER_config.ACCESS_SECRET)
+auth = tweepy.OAuthHandler(BOT_config.CONSUMER_KEY, BOT_config.CONSUMER_SECRET)
+auth.set_access_token(BOT_config.ACCESS_KEY, BOT_config.ACCESS_SECRET)
 
 api = tweepy.API(auth)
 
@@ -146,7 +146,7 @@ def check_file_content(str_):
     with open('utt1.txt', 'a+') as oo:
         print(str_)
         c = oo.write(str_ + "\n")
-        #create_tweet(str_=str_)
+        create_tweet(str_=str_)
         return False
 
 
