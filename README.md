@@ -6,6 +6,7 @@
 
 This project is a continuation of the Fabrizio Romano BOT (https://github.com/abmoh95/Fabrizio_Romano_ManUTD_Bot). This project will live tweet about Manchester United Live Scores, fixtures and game events.
 
+![Screenshot](fab.png)
 
 ## Table of contents
 * [General info](#general-info)
